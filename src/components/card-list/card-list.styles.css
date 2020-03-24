@@ -1,0 +1,21 @@
+.card-list{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    background-color: #ddd;
+    padding-left: 60px;
+    transition: all .45s;
+}
+
+.card-list.open{
+    padding-left: 40rem;
+}
+
+ol{
+    list-style: none;
+    list-style-position: inside;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+}
