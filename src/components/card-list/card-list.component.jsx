@@ -10,8 +10,8 @@ export const CardList = props => (
     <div className="card-list open">
         <ol>
         {
-            props.trumpisms.map(trumpisms => (
-            <Card key={trumpisms.id} className="" trumpisms={trumpisms}/>
+            props.docs.map(docs => (
+            <Card key={docs.id} className="" docs={docs}/>
             ))
          }
         </ol>

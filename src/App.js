@@ -13,7 +13,7 @@ class App extends Component{
     super(); // calls constructot method on component class. Gives access to this.state
 
     this.state = {
-      trumpisms: [],
+      docs: [],
       searchField: ''
     }
 
@@ -32,7 +32,7 @@ class App extends Component{
   componentDidMount(){
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
-      .then(users => this.setState({trumpisms: users}));
+      .then(users => this.setState({docs: cat}));
   }
 
   handleClick1(){
@@ -42,9 +42,9 @@ class App extends Component{
 
   render() {
     // filtering an array
-    const {trumpisms, searchField} = this.state;
-    const filteredTrumpisms  = trumpisms.filter(
-      trumpism => trumpism.name.toLowerCase().includes(searchField.toLowerCase())
+    const {docs, searchField} = this.state;
+    const filteredDocs  = docs.filter(
+      doc => doc.name.toLowerCase().includes(searchField.toLowerCase())
     )
 
 
@@ -57,7 +57,7 @@ class App extends Component{
             handleChange={this.handleChange}
           />
         </section>
-        <CardList trumpisms={filteredTrumpisms} />
+        <CardList trumpisms={filteredDocs} />
 
         {/* Don't do this, with brackets, because it will be called on render */}
         <button style={{display: "none"}} onClick={this.handleClick1()}>Click 1</button> 

@@ -8,9 +8,9 @@ export const Card = props => (
     <li className="card-container">
         <a href="#">
             <p className="">
-                {props.trumpisms.id}
+                {props.docs.id}
             </p>
-            <h2 className="">{props.trumpisms.name}</h2>
+            <h2 className="">{props.docs.name}</h2>
         </a>
     </li>
 ) 
