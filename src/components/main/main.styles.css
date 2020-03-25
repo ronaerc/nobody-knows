@@ -1,0 +1,10 @@
+.full-height {
+    min-height: 100vh;
+}
+
+main{
+    width: 100%;
+    background-color: #ddd;
+    color: #03f;
+    border-color: #03f;
+}

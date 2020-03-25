@@ -23,16 +23,28 @@
     border-bottom: 1px solid;
 }
 
-.card-container a{
+.card-container button{
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: flex-end;
     align-items: flex-end;
     text-decoration: none;
     cursor: pointer;
+    -webkit-appearance: button;
+    text-transform: none;
+    overflow: visible;
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 1 */
+    line-height: 1.15; /* 1 */
+    margin: 0; /* 2 */
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    width: 100%;
+    text-align: left;
 }
 
-.card-container:hover a{
+.card-container:hover button{
     color: #ddd;
 }
 

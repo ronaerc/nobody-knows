@@ -16,6 +16,6 @@ ol{
     list-style-position: inside;
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: column-reverse;
-    flex-direction: column-reverse;
+    -webkit-flex-direction: column;
+    flex-direction: column;
 }

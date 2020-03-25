@@ -4,6 +4,7 @@ import './App.css';
 
 import {CardList} from './components/card-list/card-list.component.jsx';
 import {SearchBox} from './components/search-box/search-box.component.jsx';
+import {Main} from './components/main/main.component.jsx';
 
 
 //Classes are for handling state
@@ -14,7 +15,9 @@ class App extends Component{
 
     this.state = {
       docs: [],
-      searchField: ''
+      searchField: '',
+      displayMain: false,
+      active: false
     }
 
     //this.handleChange = this.handleChange.bind(this);
@@ -29,40 +32,59 @@ class App extends Component{
     this.setState({searchField: e.target.value})
   }
 
+  showMain = () => {
+    this.setState({displayMain: true});
+    this.toggleClass();
+  }
+
+  toggleClass = (e) => {
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
+    console.log(this.state.active);
+  }
+
+  hideMain = () => {
+    this.setState({displayMain: false});
+  }
+
   componentDidMount(){
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://my-json-server.typicode.com/ronaerc/json-files/docs')
       .then(response => response.json())
-      .then(users => this.setState({docs: cat}));
+      .then(docs => this.setState({docs: docs}));
   }
-
-  handleClick1(){
-    console.log('in');
-  }
-
 
   render() {
     // filtering an array
     const {docs, searchField} = this.state;
-    const filteredDocs  = docs.filter(
-      doc => doc.name.toLowerCase().includes(searchField.toLowerCase())
+    const filteredDocs = docs.filter(
+      doc => doc.cat.toLowerCase().includes(searchField.toLowerCase())
     )
-
-
+    const displayMain = this.state.displayMain;
+    let main;
+    
+    if (displayMain) {
+      main = <Main id="" />  
+    }
 
     return (
+
       <div className="App">
-        <section className="cover">
-          <SearchBox 
-            placeholder="Search..."
-            handleChange={this.handleChange}
-          />
-        </section>
-        <CardList trumpisms={filteredDocs} />
-
-        {/* Don't do this, with brackets, because it will be called on render */}
-        <button style={{display: "none"}} onClick={this.handleClick1()}>Click 1</button> 
-
+        <section className={this.state.displayMain ? "cover slided" : "cover" } onClick={this.hideMain}>
+         
+            <div className="block block--top">
+              <h1>Football Docs To Watch</h1>
+            </div>
+            <div className="block block--bottom">
+           
+           
+            </div>
        
+        </section>
+      
+        <CardList docs={filteredDocs} showMain={this.showMain} displayMain={displayMain} isActive={this.active}/>
+        
+        {main}
+        
       </div>
     )
   }

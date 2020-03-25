@@ -4,13 +4,13 @@ import React from 'react';
 
 import './card.styles.css';
 
-export const Card = props => (
-    <li className="card-container">
-        <a href="#">
+export const Card = ({docs, showMain, active}) => (
+    <li className={active ? 'card-container active': 'card-container'} onClick={showMain} >
+       <button>
             <p className="">
-                {props.docs.id}
+                {docs.id}
             </p>
-            <h2 className="">{props.docs.name}</h2>
-        </a>
+            <h2 className="">{docs.cat}</h2>
+        </button>
     </li>
 ) 

@@ -6,12 +6,13 @@ import {Card} from '../card/card.component.jsx';
 
 import './card-list.styles.css';
 
-export const CardList = props => (
-    <div className="card-list open">
+export const CardList = ({docs, showMain, displayMain, isActive}) => (
+    
+    <div className={displayMain ? "card-list" : "card-list open" }>
         <ol>
         {
-            props.docs.map(docs => (
-            <Card key={docs.id} className="" docs={docs}/>
+            docs.map(docs => (
+            <Card key={docs.id} className="" docs={docs} showMain={showMain} isActive={isActive}/>
             ))
          }
         </ol>

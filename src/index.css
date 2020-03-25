@@ -26,6 +26,10 @@ body{
     border-color: #03f;
 }
 
+a{
+  text-decoration: none;
+}
+
 .cover{
   z-index: 2;
   position: fixed;
@@ -46,4 +50,47 @@ body{
   -webkit-transform: translateX(calc(-100% + 61px));
   transform: translateX(calc(-100% + 61px));
   cursor: pointer;
+}
+
+.cover.slided:hover{
+-webkit-transform: translateX(calc(-100% + 72px));
+    transform: translateX(calc(-100% + 72px));
+}
+
+.cover .block--top{
+  background-color: #03f;
+  color: #ddd;
+  height: 24.5rem;
+}
+
+.cover.slided .block--top{
+  height: 0;
+}
+
+.cover .block{
+  transition: all .45s;
+}
+
+.cover .block h1{
+  font-size: 8rem;
+  line-height: .975em;
+  letter-spacing: -.075em;
+  text-transform: uppercase;
+  padding: .05em .05em .1em;
+}
+
+.cover .block--bottom{
+  background-color: #474d3a;
+  overflow: hidden;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.container {
+  padding: 4.6725rem 7.4rem 0 calc(60px + 7.4rem);
 }
